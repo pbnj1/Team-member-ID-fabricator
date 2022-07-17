@@ -6,6 +6,7 @@ const generateHTML = (answersArr) => ``;
 // const generateHTML = ({ name, location, github, linkedin }) => ``;
 
 
+
 const engineerPrompts = () => {
   inquirer.prompt([
     {
@@ -31,10 +32,13 @@ const engineerPrompts = () => {
   ])
 
   .then((answers) => {
-    answersArr.push(answers);
-return nextIdPrompt();
+  answersArr.push(answers);
+  console.log(answersArr);
+  return nextIdPrompt();
 })
 }
+
+
 
 
 const internPrompts = () => {
@@ -62,10 +66,13 @@ const internPrompts = () => {
   ])
   .then((answers) => {
     answersArr.push(answers);
-   return nextIdPrompt();
+    console.log(answersArr);
+    return nextIdPrompt();
   
   })
 }
+
+
 
 
 
@@ -98,7 +105,8 @@ const managerPrompts =() =>{
   ])
 .then((answers) => {
   answersArr.push(answers);
-return nextIdPrompt();
+  console.log(answersArr);
+  return nextIdPrompt();
 })
 }
 
@@ -120,16 +128,15 @@ const nextIdPrompt =() =>{
     ])
 
    .then((answers) => {
-if (answers.choices === "Engineer"){
-engineerPrompts();
-} 
-// if (answers.choices === "Intern"){
-// internPrompts();
-// }if (answers.choices === "Finish Building My Team"){
-//   fs.writeFile("index.html", generateHTML(answers), (err) =>
-//   err ? console.log(err) : console.log(`Success!`)
-//    )
-// }
+if (answers.role === "Engineer"){engineerPrompts();} 
+if (answers.role === "Intern"){internPrompts()};
+if (answers.role === "Finish Building My Team")
+{
+  console.log(answersArr);
+  fs.writeFile("index.html", generateHTML(answers), (err) =>
+  err ? console.log(err) : console.log(`Success!`)
+   )
+}
 })
 }
 
