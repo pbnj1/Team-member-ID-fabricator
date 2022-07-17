@@ -31,9 +31,11 @@ const engineerPrompts = () => {
   ])
 
   .then((answers) => {
+    answersArr.push(answers);
 return nextIdPrompt();
 })
 }
+
 
 const internPrompts = () => {
   inquirer.prompt([
@@ -59,6 +61,7 @@ const internPrompts = () => {
     },
   ])
   .then((answers) => {
+    answersArr.push(answers);
    return nextIdPrompt();
   
   })
@@ -68,7 +71,7 @@ const internPrompts = () => {
 
 let answersArr =[];
 
-function managerPrompts() {
+const managerPrompts =() =>{
   inquirer.prompt([
    
     {
@@ -111,6 +114,7 @@ const nextIdPrompt =() =>{
     {
         type: "list",
         message: "What role would you like to create?",
+        name: "role",
         choices: ["Engineer", "Intern", "Finish Building My Team"],
       },
     ])
@@ -118,13 +122,15 @@ const nextIdPrompt =() =>{
    .then((answers) => {
 if (answers.choices === "Engineer"){
 engineerPrompts();
-} if (answers.choices === "Intern"){
-internPrompts();
-}if (answers.choices === "Finish Building My Team"){
-  fs.writeFile("index.html", generateHTML(answers), (err) =>
-  err ? console.log(err) : console.log(`Success!`)
-   )
-}})
+} 
+// if (answers.choices === "Intern"){
+// internPrompts();
+// }if (answers.choices === "Finish Building My Team"){
+//   fs.writeFile("index.html", generateHTML(answers), (err) =>
+//   err ? console.log(err) : console.log(`Success!`)
+//    )
+// }
+})
 }
 
 ;
