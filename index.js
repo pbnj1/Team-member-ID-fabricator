@@ -1,9 +1,9 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const Employee = require("./lib/class.js");
-const Manager = require("./lib/class.js");
-const Engineer = require("./lib/class.js");
-const Intern = require("./lib/class.js");
+const Employee = require("../lib/Employee");
+const Manager = require("../lib/Manager");
+const Engineer = require("../lib/Engineer");
+const Intern = require("../lib/Intern");
 
 
 
@@ -105,7 +105,7 @@ const managerPrompts =() =>{
   ])
 .then((answers) => {
   const manager = new Manager(
-    
+
   )
   answersArr.push(answers);
   console.log("manager Q", answersArr);

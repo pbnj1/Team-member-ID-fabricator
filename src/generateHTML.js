@@ -1,4 +1,4 @@
-const nextIdPrompt = require(".index.js")
+const nextIdPrompt = require("..index.js")
 
 const generateHTML = (answersArr) => ``;
 
