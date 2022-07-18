@@ -1,5 +1,10 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+// const Employee = require("./lib/class.js");
+// const Manager = require("./lib/class.js");
+// const Engineer = require("./lib/class.js");
+// const Intern = require("./lib/class.js");
+
 
 const generateHTML = (answersArr) => ``;
 
@@ -33,7 +38,7 @@ const engineerPrompts = () => {
 
   .then((answers) => {
   answersArr.push(answers);
-  console.log(answersArr);
+  console.log("engineer Q", answersArr);
   return nextIdPrompt();
 })
 }
@@ -66,7 +71,7 @@ const internPrompts = () => {
   ])
   .then((answers) => {
     answersArr.push(answers);
-    console.log(answersArr);
+    console.log("intern Q", answersArr);
     return nextIdPrompt();
   
   })
@@ -105,7 +110,7 @@ const managerPrompts =() =>{
   ])
 .then((answers) => {
   answersArr.push(answers);
-  console.log(answersArr);
+  console.log("manager Q", answersArr);
   return nextIdPrompt();
 })
 }
@@ -132,7 +137,7 @@ if (answers.role === "Engineer"){engineerPrompts();}
 if (answers.role === "Intern"){internPrompts()};
 if (answers.role === "Finish Building My Team")
 {
-  console.log(answersArr);
+  console.log("finish Q", answersArr);
   fs.writeFile("index.html", generateHTML(answers), (err) =>
   err ? console.log(err) : console.log(`Success!`)
    )
