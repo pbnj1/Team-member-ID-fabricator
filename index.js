@@ -104,6 +104,9 @@ const managerPrompts =() =>{
 
   ])
 .then((answers) => {
+  const manager = new Manager(
+    
+  )
   answersArr.push(answers);
   console.log("manager Q", answersArr);
   return nextIdPrompt();
