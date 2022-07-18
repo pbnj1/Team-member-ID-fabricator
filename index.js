@@ -1,14 +1,9 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-// const Employee = require("./lib/class.js");
-// const Manager = require("./lib/class.js");
-// const Engineer = require("./lib/class.js");
-// const Intern = require("./lib/class.js");
-
-
-const generateHTML = (answersArr) => ``;
-
-// const generateHTML = ({ name, location, github, linkedin }) => ``;
+const Employee = require("./lib/class.js");
+const Manager = require("./lib/class.js");
+const Engineer = require("./lib/class.js");
+const Intern = require("./lib/class.js");
 
 
 
@@ -149,3 +144,4 @@ if (answers.role === "Finish Building My Team")
 
 
 managerPrompts();
+module.exports = nextIdPrompt;

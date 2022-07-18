@@ -1,0 +1,13 @@
+#nav{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: red;
+    height: 20%;
+
+}
+
+#team{
+    font-size: 5em;
+    color: white;
+}
