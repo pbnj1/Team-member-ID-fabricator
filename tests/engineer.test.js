@@ -6,14 +6,16 @@ test("Can instantiate Engineer instance", () => {
   });
 
   test("Can get github username via getGithub()", () => {
-    const testValue = "user@github.com";
-    const e = new Engineer("Foo", 1, testValue);
-    expect(e.getGithub()).toBe(testValue);
+
+    const e = new Engineer();
+    
+    expect(e.getGithub()).toBe(Engineer.github);
   });
   
   test("getRole() should return \"Engineer\"", () => {
-    const testValue = "Engineer";
-    const e = new Engineer("Alice", 1, "test@test.com");
-    expect(e.getRole()).toBe(testValue);
+ 
+    const e = new Engineer();
+    
+    expect(e.getRole()).toBe(Engineer);
   });
   

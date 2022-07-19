@@ -7,8 +7,9 @@ test("Can instantiate Intern instance", () => {
 
   
   test("getRole() should return \"Intern\"", () => {
-    const testValue = "Manager";
-    const e = new Manager("Alice", 1, "test@test.com");
-    expect(e.getRole()).toBe(testValue);
+  
+    const e = new Manager();
+
+    expect(e.getRole()).toBe(Manager);
   });
   
