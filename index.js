@@ -41,7 +41,7 @@ const engineerPrompts = () => {
         answers.github
       );
       answersArr.push(engineer);
-      console.log("engineer Q", answersArr);
+      console.log("inside engineer Q", answersArr);
       return nextIdPrompt();
     });
 };
@@ -78,7 +78,7 @@ const internPrompts = () => {
         answers.school
       );
       answersArr.push(intern);
-      console.log("intern Q", answersArr);
+      console.log("inside intern Q", answersArr);
       return nextIdPrompt();
     });
 };
@@ -115,7 +115,7 @@ const managerPrompts = () => {
         answers.number
       );
       answersArr.push(manager);
-      console.log("manager Q", answersArr);
+      console.log("inside manager Q", answersArr);
       return nextIdPrompt();
     });
 };
@@ -139,7 +139,7 @@ const nextIdPrompt = () => {
         internPrompts();
       }
       if (answers.role === "Finish Building My Team") {
-        console.log("finish Q", answersArr);
+        console.log("inside finish Q", answersArr);
         fs.writeFile("index.html", generateHTML(answersArr) , (err) =>
         err ? console.log(err) : console.log(`Success!`)
          )
