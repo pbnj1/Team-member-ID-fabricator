@@ -4,6 +4,8 @@ const Employee = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const HTML = require("./src/generateHTML");
+const generateHTML = require("./src/generateHTML");
 let answersArr = [];
 
 const engineerPrompts = () => {
@@ -69,7 +71,7 @@ const internPrompts = () => {
       },
     ])
     .then((answers) => {
-      const intern = new Manager(
+      const intern = new Intern(
         answers.name,
         answers.id,
         answers.email,
@@ -138,12 +140,14 @@ const nextIdPrompt = () => {
       }
       if (answers.role === "Finish Building My Team") {
         console.log("finish Q", answersArr);
-        // fs.writeFile("index.html", generateHTML(answers), (err) =>
-        // err ? console.log(err) : console.log(`Success!`)
-        //  )
+        fs.writeFile("index.html", generateHTML(answersArr) , (err) =>
+        err ? console.log(err) : console.log(`Success!`)
+         )
       }
     });
 };
+
+// generateHTML(answersArr)
 
 managerPrompts();
 module.exports = nextIdPrompt;
