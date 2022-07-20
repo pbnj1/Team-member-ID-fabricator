@@ -1,10 +1,12 @@
+let example = ""
 
-const managerCard = (Manager) =>{
-return `
+const managerCard = (Manager) => {
+  console.log("hi", Manager);
+  return `
     <div class="card" style="width: 18rem">
         <div class="card-body">
           <h4 class="card-title">${Manager.name}</h4>
-          <h5 class="card-text">${Manager.role}</h5>
+          <h5 class="card-text">${Manager.getRole()}</h5>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">${Manager.id}</li>
@@ -15,11 +17,11 @@ return `
         </ul>
       </div>
 
-`
-}
+`;
+};
 
-const engineerCard = (Engineer) =>{
-    return `  <div class="card" style="width: 18rem">
+const engineerCard = (Engineer) => {
+  return `  <div class="card" style="width: 18rem">
     <div class="card-body">
       <h4 class="card-title">${Engineer.name}</h4>
       <h5 class="card-text">${Engineer.role}</h5>
@@ -35,12 +37,11 @@ const engineerCard = (Engineer) =>{
     </ul>
   </div>
     
-    `
-    }
+    `;
+};
 
-
-const internCard = (Intern) =>{
-    return `  <div class="card" style="width: 18rem">
+const internCard = (Intern) => {
+  return `  <div class="card" style="width: 18rem">
     <div class="card-body">
       <h4 class="card-title">${Intern.name}</h4>
       <h5 class="card-text">${Intern.role}</h5>
@@ -53,44 +54,35 @@ const internCard = (Intern) =>{
       <li class="list-group-item">${Intern.school}</li>
     </ul>
   </div>  
-    `
+    `;
+};
+
+function getEachCard(answersArr) {
+    console.log("inside getEachCard", answersArr);
+    for (i = 0; i < answersArr.length; i++) {
+      console.log(answersArr[i].getRole());
+      if (answersArr[i].getRole() === "Manager") {
+      
+        const managerCardText = managerCard(answersArr[i]);
+        console.log(" string ", managerCardText)
+        return managerCardText
+      }
+      if (answersArr[i].getRole() === "Engineer") {
+        const engineerCardText = engineerCard(answersArr[i]);
+        return engineerCard;
+      }
+      if (answersArr[i].getRole() === "Intern") {
+        const internCardText = internCard(answersArr[i]);
+        return internCard;
+      }
     }
+    return example
+  }
 
-
- const getEachCard= (answersArr) => {
-        console.log("inside getEachCard", answersArr)
-            for (i =0; i< answersArr.length; i++){
-            if (answersArr[i].getRole === "Manager"){
-        
-            }
-        }
-    
-    }
-
-
-function generateHTML(answersArr){
-
-
-function getEachCard (answersArr){
-    
-    console.log("inside getEachCard", answersArr)
-    for (i =0; i< answersArr.length; i++){
-        if (answersArr[i].getRole === "Manager"){
-    return managerCard
-        }
-         if (answersArr[i].getRole === "Engineer"){
-            return engineerCard
-                }
-                if (answersArr[i].getRole === "Intern"){
-                    return internCard
-                        }
-    }
-
-}
-
-console.log("inside of generate", answersArr)
-
-`<html lang="en">
+function generateHTML(answersArr) {
+  
+return `
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -126,5 +118,3 @@ console.log("inside of generate", answersArr)
 </html>`;
 }
 module.exports = generateHTML;
-
-    
