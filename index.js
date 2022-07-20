@@ -140,7 +140,7 @@ const nextIdPrompt = () => {
       }
       if (answers.role === "Finish Building My Team") {
         console.log("inside finish Q", answersArr);
-        fs.writeFile("index.html", generateHTML(answersArr) , (err) =>
+        fs.writeFile("./dist/index.html", generateHTML(answersArr) , (err) =>
         err ? console.log(err) : console.log(`Success!`)
          )
       }

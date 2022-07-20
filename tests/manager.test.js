@@ -10,6 +10,6 @@ test("Can instantiate Intern instance", () => {
   
     const e = new Manager();
 
-    expect(e.getRole()).toBe(Manager);
+    expect(e.getRole()).toBe("Manager");
   });
   

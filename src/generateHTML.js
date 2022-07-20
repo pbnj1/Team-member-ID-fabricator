@@ -1,10 +1,10 @@
-let example = ""
+let idRender = "";
 
 const managerCard = (Manager) => {
   console.log("hi", Manager);
   return `
-    <div class="card" style="width: 18rem">
-        <div class="card-body">
+    <div class="card col-4" style="width: 18rem">
+        <div class="card-body top">
           <h4 class="card-title">${Manager.name}</h4>
           <h5 class="card-text">${Manager.getRole()}</h5>
         </div>
@@ -21,10 +21,11 @@ const managerCard = (Manager) => {
 };
 
 const engineerCard = (Engineer) => {
-  return `  <div class="card" style="width: 18rem">
-    <div class="card-body">
+  return `  
+  <div class="card col-4" style="width: 18rem">
+    <div class="card-body top">
       <h4 class="card-title">${Engineer.name}</h4>
-      <h5 class="card-text">${Engineer.role}</h5>
+      <h5 class="card-text">${Engineer.getRole()}</h5>
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">${Engineer.id}/li>
@@ -41,10 +42,11 @@ const engineerCard = (Engineer) => {
 };
 
 const internCard = (Intern) => {
-  return `  <div class="card" style="width: 18rem">
-    <div class="card-body">
+  return `  
+  <div class="card col-4" style="width: 18rem">
+    <div class="card-body top">
       <h4 class="card-title">${Intern.name}</h4>
-      <h5 class="card-text">${Intern.role}</h5>
+      <h5 class="card-text">${Intern.getRole()}</h5>
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">${Intern.id}</li>
@@ -58,30 +60,29 @@ const internCard = (Intern) => {
 };
 
 function getEachCard(answersArr) {
-    console.log("inside getEachCard", answersArr);
-    for (i = 0; i < answersArr.length; i++) {
-      console.log(answersArr[i].getRole());
-      if (answersArr[i].getRole() === "Manager") {
-      
-        const managerCardText = managerCard(answersArr[i]);
-        console.log(" string ", managerCardText)
-        return managerCardText
-      }
-      if (answersArr[i].getRole() === "Engineer") {
-        const engineerCardText = engineerCard(answersArr[i]);
-        return engineerCard;
-      }
-      if (answersArr[i].getRole() === "Intern") {
-        const internCardText = internCard(answersArr[i]);
-        return internCard;
-      }
+  console.log("inside getEachCard", answersArr);
+  for (i = 0; i < answersArr.length; i++) {
+    console.log(answersArr[i].getRole());
+    if (answersArr[i].getRole() === "Manager") {
+      const managerCardText = managerCard(answersArr[i]);
+      console.log(" string ", managerCardText);
+      idRender += managerCardText;
     }
-    return example
+    if (answersArr[i].getRole() === "Engineer") {
+      const engineerCardText = engineerCard(answersArr[i]);
+      console.log(" string ", engineerCardText);
+      idRender += engineerCardText;
+    }
+    if (answersArr[i].getRole() === "Intern") {
+      const internCardText = internCard(answersArr[i]);
+      idRender += internCardText;
+    }
   }
+  return idRender;
+}
 
 function generateHTML(answersArr) {
-  
-return `
+  return `
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -94,19 +95,19 @@ return `
     crossorigin="anonymous"
     />
     <title>Team ID Card Builder</title>
-    <link rel="stylesheet" type ="text/css" href="./assets/styles.css">
+    <link rel="stylesheet" type ="text/css" href="./styles.css">
 </head>
 <body>
     <nav id = "nav"> <h1 id ="team"> My Team </h1></nav>
-
-    <div id ="to-append">
-    <div>${"hello"}<div>
+<div class ="container">
+    <div id ="to-append" class ="row d-flex justify-content-around">
+   
     
     ${getEachCard(answersArr)}
    
 
     </div>
-
+<div>
    
 
 

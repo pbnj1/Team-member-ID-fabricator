@@ -16,6 +16,6 @@ test("Can instantiate Intern instance", () => {
    
     const e = new Intern();
 
-    expect(e.getRole()).toBe(Intern);
+    expect(e.getRole()).toBe("Intern");
   });
   

@@ -16,6 +16,6 @@ test("Can instantiate Engineer instance", () => {
  
     const e = new Engineer();
     
-    expect(e.getRole()).toBe(Engineer);
+    expect(e.getRole()).toBe("Engineer");
   });
   
