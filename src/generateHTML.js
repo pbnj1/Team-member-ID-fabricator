@@ -57,8 +57,38 @@ const internCard = (Intern) =>{
     }
 
 
+ const getEachCard= (answersArr) => {
+        console.log("inside getEachCard", answersArr)
+            for (i =0; i< answersArr.length; i++){
+            if (answersArr[i].getRole === "Manager"){
+        
+            }
+        }
+    
+    }
 
-const generateHTML = (Intern) => 
+
+function generateHTML(answersArr){
+
+
+function getEachCard (answersArr){
+    
+    console.log("inside getEachCard", answersArr)
+    for (i =0; i< answersArr.length; i++){
+        if (answersArr[i].getRole === "Manager"){
+    return managerCard
+        }
+         if (answersArr[i].getRole === "Engineer"){
+            return engineerCard
+                }
+                if (answersArr[i].getRole === "Intern"){
+                    return internCard
+                        }
+    }
+
+}
+
+console.log("inside of generate", answersArr)
 
 `<html lang="en">
 <head>
@@ -80,23 +110,8 @@ const generateHTML = (Intern) =>
     <div id ="to-append">
     <div>${"hello"}<div>
     
-
-
-    <div class="card" style="width: 18rem">
-    <div class="card-body">
-      <h4 class="card-title">${Intern.getName()}</h4>
-      <h5 class="card-text">${Intern.getRole()}</h5>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">${Intern.getId()}</li>
-      <li class="list-group-item">Email:
-        <a href="#" class="card-link"> ${Intern.getEmail()}</a>
-      </li>
-      <li class="list-group-item">${Intern.getSchool()}</li>
-    </ul>
-  </div>  
-
-
+    ${getEachCard(answersArr)}
+   
 
     </div>
 
@@ -109,14 +124,7 @@ const generateHTML = (Intern) =>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </html>`;
-
+}
 module.exports = generateHTML;
 
     
-
-
-// const generateHTML = ({ name, location, github, linkedin }) => ``;
-
-
-// ${document.createElement("div").innerHTML(answersArr).setAttr("id","card")}
-// ${document.getElementById("to-append").append(card)}
