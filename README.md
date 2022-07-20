@@ -1,5 +1,5 @@
 # Team-member-ID-fabricator
-command line application that assists organizations in helping build team member ID cards
+This is a command line application that assists organizations in helping build team member ID cards
 
 [Link to a video walkthrough] https://drive.google.com/file/d/1BDtj8ZrZlY2uwJdoFanXE-VP1qu8OP1V/view
 
