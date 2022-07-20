@@ -8,6 +8,7 @@ const HTML = require("./src/generateHTML");
 const generateHTML = require("./src/generateHTML");
 let answersArr = [];
 
+//engineer prompts
 const engineerPrompts = () => {
   inquirer
     .prompt([
@@ -46,6 +47,7 @@ const engineerPrompts = () => {
     });
 };
 
+//Intern prompts
 const internPrompts = () => {
   inquirer
     .prompt([
@@ -83,6 +85,7 @@ const internPrompts = () => {
     });
 };
 
+//Manager prompts
 const managerPrompts = () => {
   inquirer
     .prompt([
@@ -120,6 +123,7 @@ const managerPrompts = () => {
     });
 };
 
+//next employee prompts and to render on the HTML file
 const nextIdPrompt = () => {
   inquirer
     .prompt([
@@ -147,7 +151,6 @@ const nextIdPrompt = () => {
     });
 };
 
-// generateHTML(answersArr)
 
 managerPrompts();
 module.exports = nextIdPrompt;

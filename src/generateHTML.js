@@ -1,38 +1,44 @@
 let idRender = "";
 
+//manager HTML
 const managerCard = (Manager) => {
   console.log("hi", Manager);
   return `
+
+
     <div class="card col-4" style="width: 18rem">
         <div class="card-body top">
           <h4 class="card-title">${Manager.name}</h4>
           <h5 class="card-text">${Manager.getRole()}</h5>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">${Manager.id}</li>
-          <li class="list-group-item">Email:
+        <ul class="list-group list-group-flush bottom">
+          <li class="list-group-item bottom">ID: ${Manager.id}</li>
+          <li class="list-group-item bottom">Email:
             <a href="#" class="card-link"> ${Manager.email}</a>
           </li>
-          <li class="list-group-item">${Manager.officeNumber}</li>
+          <li class="list-group-item bottom"> Office Number: ${Manager.officeNumber}</li>
         </ul>
       </div>
 
 `;
 };
 
+//engineer HTML
 const engineerCard = (Engineer) => {
   return `  
+
+
   <div class="card col-4" style="width: 18rem">
     <div class="card-body top">
       <h4 class="card-title">${Engineer.name}</h4>
       <h5 class="card-text">${Engineer.getRole()}</h5>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">${Engineer.id}/li>
-      <li class="list-group-item">Email:
+      <li class="list-group-item bottom">ID: ${Engineer.id}/li>
+      <li class="list-group-item bottom">Email:
         <a href="#" class="card-link"> ${Engineer.email}</a>
       </li>
-      <li class="list-group-item">Github:
+      <li class="list-group-item bottom">Github:
         <a href="#" class="card-link"> ${Engineer.github}</a>
       </li>
     </ul>
@@ -41,24 +47,28 @@ const engineerCard = (Engineer) => {
     `;
 };
 
+//Intern HTML
 const internCard = (Intern) => {
   return `  
+
+  
   <div class="card col-4" style="width: 18rem">
     <div class="card-body top">
       <h4 class="card-title">${Intern.name}</h4>
       <h5 class="card-text">${Intern.getRole()}</h5>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">${Intern.id}</li>
-      <li class="list-group-item">Email:
+    <ul class="list-group list-group-flush bottom">
+      <li class="list-group-item bottom">ID: ${Intern.id}</li>
+      <li class="list-group-item bottom">Email:
         <a href="#" class="card-link"> ${Intern.email}</a>
       </li>
-      <li class="list-group-item">${Intern.school}</li>
+      <li class="list-group-item bottom">School: ${Intern.school}</li>
     </ul>
   </div>  
     `;
 };
 
+//Funciton to search through the prompts to find the right employee class and send it from an array to a string
 function getEachCard(answersArr) {
   console.log("inside getEachCard", answersArr);
   for (i = 0; i < answersArr.length; i++) {
@@ -81,6 +91,7 @@ function getEachCard(answersArr) {
   return idRender;
 }
 
+//function to return the skeleton to render the cards on the screen
 function generateHTML(answersArr) {
   return `
 <html lang="en">
@@ -100,7 +111,7 @@ function generateHTML(answersArr) {
 <body>
     <nav id = "nav"> <h1 id ="team"> My Team </h1></nav>
 <div class ="container">
-    <div id ="to-append" class ="row d-flex justify-content-around">
+    <div id ="to-append" class ="row col-12 d-flex justify-content-around">
    
     
     ${getEachCard(answersArr)}

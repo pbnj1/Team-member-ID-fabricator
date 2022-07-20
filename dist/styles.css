@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    background-color: red;
+    background-color: #495C83;
     height: 15%;
 
 }
@@ -13,6 +13,10 @@
 }
 
 .top{
-    background-color: rgb(24, 69, 215);
+    background-color: #7A86B6;
     color: white;
+}
+.bottom{
+    background-color: #A8A4CE;
+    color: white
 }
