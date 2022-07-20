@@ -7,10 +7,15 @@ command line application that assists organizations in helping build team member
 
 ## How to use this app
 Clone the code from the repo
+
 run the command node index from the command line
+
 answer the prompts
+
 your new cards will be available in an index.html file in the dist folder
 
 
 ## Requirements
-You will need Node and Inquirer
+Node
+
+Inquirer
